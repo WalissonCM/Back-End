@@ -40,4 +40,6 @@ Route.resource('/aulas', 'AulasController')
 
 Route.resource('/chamadas', 'ChamadasController')
 
+Route.post('/exercicios', 'ExerciciosController.deversala')
+
 

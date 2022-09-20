@@ -11,8 +11,6 @@
     "outDir": "build",
     "rootDir": "./",
     "sourceMap": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "paths": {
       "App/*": [
         "./app/*"
@@ -28,15 +26,10 @@
       ]
     },
     "types": [
-      
       "@adonisjs/core",
       "@adonisjs/repl",
       "@japa/preset-adonis/build/adonis-typings",
-      "@adonisjs/lucid",
-      "node",
+      "@adonisjs/lucid"
     ]
   }
 }
-
-           
-
