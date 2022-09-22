@@ -1,0 +1,89 @@
+fazer na sua maquina:
+1 - instalar o git (git bash)
+2 - instalar o node
+3- isntalar o isomnia
+
+adonejs
+-------------------------------------------------------
+
+// criando projeto adones 
+npm init adonis-ts-app@latest _______
+
+// instal a migracao do banco
+npm i @adonisjs/lucid
+
+// configura qual e o bancos
+node ace configure @adonisjs/lucid
+
+// inicia o server
+node ace serve --watch
+
+//Migration/Model/Controller - criar o codigo base do banco
+node ace make:model ____ -m -c
+
+
+// criar o arquivo seed
+node ace make:seeder _____
+
+
+// inicia as seeders
+node ace db:seed
+
+
+// inicia/cria as tabelas que estao na pasta database/migration
+node ace migration:run
+
+
+//desfaz a ultima alteração
+node ace migration:rollback
+
+
+//apaga todo o banco
+node ace migration:reset
+
+
+//reset + run
+node ace migration:refresh
+
+
+
+//       seeders
+
+
+// criar o arquivo seed
+node ace make:seeder _____
+
+
+// inicia as seeders
+node ace db:seed
+
+
+// reset + run iniciando as seeds tambem
+node ace migration:refresh --seed
+
+
+
+
+// Git - GitHub
+
+// caso a pasta não tenha sido clonada, para criar a pasta git
+git init
+
+// para confimar a atualização ou as pasta/arquivos que ira coloca no git
+git add -A
+
+//escreve uma mensagem que vai aparece no arquivos/pastas que foram para o git
+git commit -m "_____"
+
+// caso seja um clone do seu repositorio e so da git push e obviamente loga no git desse repositorio (que e o seu) ou ja ta logado no vs code
+git push
+
+
+/* se voce que coloca-lo no seu repositorio depois de da o git add -A e git commit -m  "____" e caso seja necessario o git init e so copiar os codigos que estarao visiveis no inicio do repositorio 
+ Ex:
+   git remote add origin https://github.com/rex5212/t.git
+   git branch -M main
+   git push -u origin main
+   
+ai ele vai pedi para loga na sua conta git e atualiza o repositorio
+*/
