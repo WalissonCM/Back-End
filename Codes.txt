@@ -18,6 +18,9 @@ node ace configure @adonisjs/lucid
 // inicia o server
 node ace serve --watch
 
+// criando um controller
+node ace make:controller ______
+
 //Migration/Model/Controller - criar o codigo base do banco
 node ace make:model ____ -m -c
 
