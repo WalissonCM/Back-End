@@ -20,6 +20,6 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.post('/questao1','Questao1sController.ex1')
+Route.post('/questao1', 'Questao1sController.q1')
 
 

@@ -1,136 +1,134 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
+
 export default class Questao1sController {
     
-   ex1 ({request}){
+   q1 ({request}){
       
-      const dados = request.body()
-      const nome = dados.nome 
+      const dados = request.body() /* requeste.all */
+      
       const tipoPessoa = dados.tipoPessoa
       const cpf = dados.cpf
       const cnpj = dados.cnpj
+      const nome = dados.nome
       const sexo = dados.sexo
       const cargo = dados.cargo
       const salario = dados.salario 
-      
-      let imprima
 
-      if (tipoPessoa == 'PF' && cpf == ''){
-         imprima = "cpf nao informado"
-         return imprima
-      } 
-      if (tipoPessoa == 'Pj' && cnpj == ''){
-         imprima = "cnpj nao informado"
-         return imprima
-      } 
-   
-      if (tipoPessoa == 'Pj' && sexo == ''){
-         imprima = "O campo sexo só é permitido para Pessoa Física"
-         return imprima
-      } 
-      
-      if (tipoPessoa == 'Pj' && cargo == ''){
-         imprima = "O campo cargo só é permitido para Pessoa Física"
-         return imprima
-      } 
-      
-      if (cpf == '123456678' && cnpj == '987654321'){
-         imprima = "Favor informar somente uma opção, CPF ou CNPJ, de acordo com o Tipo de Pessoa"
-         return imprima
-      } 
-    
-      let reajuste
-      
-      if (tipoPessoa == 'PF' && cargo == 'Estagiário' && sexo == 'Masculino' && salario == 1000){
-         reajuste = salario * 1 * salario
-      }
-      else if (tipoPessoa == 'PF' && cargo == 'Técnico' && sexo == 'Masculino' && salario == 3000){
-         reajuste = salario * 0.6 * salario
-      }
-      else if (tipoPessoa == 'PF' && cargo == 'Gerente' && sexo == 'Masculino' && salario == 10000){
-         reajuste = salario * 0.3 * salario
-      }
-      else if (tipoPessoa == 'PF' && cargo == 'Diretor' && sexo == 'Masculino' && salario == 30000){
-         reajuste = salario * 0.2 * salario
-      }
-      else if (tipoPessoa == 'PF' && cargo == 'Presidente' && sexo == 'Masculino'&& salario == 50000){
-         reajuste = salario * 0.1 * salario
-      }
+      /* const { tipoPessoa, cpf, cnpj, sexo, cargo, salario} = request.body() /* outro jeito*/
 
-      else if (tipoPessoa == 'PF' && cargo == 'Estagiário' && sexo == 'Feminino' && salario == 1000){
-         reajuste = salario * 1 * salario
-      }
-      else if (tipoPessoa == 'PF' && cargo == 'Técnico' && sexo == 'Feminino' && salario == 3000){
-         reajuste = salario * 0.7 * salario
-      }
-      else if (tipoPessoa == 'PF' && cargo == 'Gerente' && sexo == 'Feminino' && salario == 10000){
-         reajuste = salario * 0.4 * salario
-      }
-      else if (tipoPessoa == 'PF' && cargo == 'Diretor' && sexo == 'Feminino' && salario == 30000){
-         reajuste = salario * 0.3 * salario
-      }
-      else if (tipoPessoa == 'PF' && cargo == 'Presidente' && sexo == 'Feminino' && salario == 50000){
-         reajuste = salario * 0.2 * salario
+      // Questão 1.1
+      
+      // a)
+      
+      if(tipoPessoa == 'PF' && !cpf){
+         return{
+                tipo: 'erro',
+                mensagem:"CPF não informado",
+                dados: {tipoPessoa, cpf}
+         }
       }
       
-      else if (tipoPessoa == 'PJ' && cargo == 'Estagiário' && sexo == 'Masculino' && salario == 1000){
-         reajuste = salario * 2.5 * salario
-      }
-      else if (tipoPessoa == 'PJ' && cargo == 'Técnico' && sexo == 'Masculino' && salario == 3000){
-         reajuste = salario * 2.5 * salario
-      }
-      else if (tipoPessoa == 'PJ' && cargo == 'Gerente' && sexo == 'Masculino' && salario == 10000){
-         reajuste = salario * 2.5 * salario
-      }
-      else if (tipoPessoa == 'PJ' && cargo == 'Diretor' && sexo == 'Masculino' && salario == 30000){
-         reajuste = salario * 2.5 * salario
-      }
-      else if (tipoPessoa == 'PJ' && cargo == 'Presidente' && sexo == 'Masculino' && salario == 50000){
-         reajuste = salario * 2.5 * salario
+      // b)
+      
+      if(tipoPessoa == 'PJ' && !cnpj){
+         return{
+                tipo: 'erro',
+                mensagem:"CNPJ não informado",
+                dados: {tipoPessoa, cnpj}
+         }  
       }
       
-      else if (tipoPessoa == 'PJ' && cargo == 'Estagiário' && sexo == 'Feminino' && salario == 1000){
-         reajuste = salario * 2.5 + salario
+      // c)
+
+      if(tipoPessoa == 'PJ' && !sexo){
+         return{tipo: 'erro',
+                mensagem:"O campo sexo só é permitido para Pessoa Física",
+                dados: {tipoPessoa, sexo}
+         }     
       }
-      else if (tipoPessoa == 'PJ' && cargo == 'Técnico' && sexo == 'Feminino' && salario == 3000){
-         reajuste = salario * 2.5 + salario
+      
+
+      // d)
+
+      if(tipoPessoa == 'PJ' && !cargo){
+         return{tipo: 'erro',
+               mensagem:"O campo cargo só é permitido para Pessoa Física",
+               dados: {tipoPessoa, cargo}
+         }  
       }
-      else if (tipoPessoa == 'PJ' && cargo == 'Gerente' && sexo == 'Feminino' && salario == 10000){
-         reajuste = salario * 2.5 + salario
+
+      // e)
+
+      if(cpf && cnpj){
+         return{tipo: 'erro',
+                mensagem:"Favor informar somente uma opção, CPF ou CNPJ, de acordo com o Tipo de Pessoa",
+                dados: {cnpj,cpf}
+         }  
       }
-      else if (tipoPessoa == 'PJ' && cargo == 'Diretor' && sexo == 'Feminino' && salario == 30000){
-         reajuste = salario * 2.5 + salario
+
+
+
+
+
+
+      // Questão 1.2
+      let salarioreajustado
+      /*salarioreajustado = (0.25 * salario ) + salario */
+      if (tipoPessoa == 'PJ'){
+         salarioreajustado = 1.25 * salario 
+      } else if{tipoPessoa == 'PF'){
       }
-      else if (tipoPessoa == 'PJ' && cargo == 'Presidente' && sexo == 'Feminino' && salario == 50000){
-         reajuste = salario * 2.5 + salario
+      
+      return {nome, salario, salarioreajustado}
+   }   
+      
+         if(sexo == 'M'){
+
+            if(cargo == 'Estagiario'){
+                salarioreajustado = (100/100 * salario) + salario /* 2* 1**/   
+            } else if(cargo == 'Tecnico'){
+                salarioreajustado = 1.6 * salario
+            } else if(cargo == 'Gerente'){
+               salarioreajustado = 1.3 * salario
+            } else if(cargo == 'Diretor'){
+               salarioreajustado = 1.2 * salario
+            } else if(cargo == 'Presidente'){
+               salarioreajustado = 1.1 * salario  
+            }  
+             
+            
+         
+        } else if(sexo == 'F'){
+
+         if(cargo == 'Estagiario'){
+            salarioreajustado = 2 * salario  
+         } else if(cargo == 'Tecnico'){
+            salarioreajustado = 1.7 * salario
+         } else if(cargo == 'Gerente'){
+           salarioreajustado = 1.4 * salario
+         } else if(cargo == 'Diretor'){
+           salarioreajustado = 1.3 * salario
+         } else if(cargo == 'Presidente'){
+           salarioreajustado = 1.2 * salario  
       }
-      return {tipoPessoa, cargo, sexo, salario, reajuste}
-   
-   
-   
-   }
-     
-     
-
-
-
-
-
-
-
+   }  
 }
 
-       
+
+   
+           
+           
       
-      
+
+
 
       
 
-
-
       
+         
       
-
+     
       
 
    
