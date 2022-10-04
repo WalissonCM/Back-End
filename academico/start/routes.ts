@@ -20,25 +20,25 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.resource('/cursos', 'CursosController')
+Route.resource('/cursos', 'CursosController').apiOnly()
 
-Route.resource('/salas', 'SalasController')
+Route.resource('/salas', 'SalasController').apiOnly()
 
-Route.resource('/disciplinas', 'DisciplinasController')
+Route.resource('/disciplinas', 'DisciplinasController').apiOnly()
 
-Route.resource('/alunos', 'AlunosController')
+Route.resource('/alunos', 'AlunosController').apiOnly()
 
-Route.resource('/semestres', 'SemestresController')
+Route.resource('/semestres', 'SemestresController').apiOnly()
 
-Route.resource('/professors', 'ProfessorsController')
+Route.resource('/professors', 'ProfessorsController').apiOnly()
 
-Route.resource('/turmas', 'TurmasController')
+Route.resource('/turmas', 'TurmasController').apiOnly()
 
-Route.resource('/turma_alunos', 'TurmaAlunosController')
+Route.resource('/turma_alunos', 'TurmaAlunosController').apiOnly()
 
-Route.resource('/aulas', 'AulasController')
+Route.resource('/aulas', 'AulasController').apiOnly()
 
-Route.resource('/chamadas', 'ChamadasController')
+Route.resource('/chamadas', 'ChamadasController').apiOnly()
 
 Route.post('/exercicios', 'ExerciciosController.deversala')
 

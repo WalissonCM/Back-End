@@ -68,6 +68,8 @@ node ace migration:refresh --seed
 
 
 // Git - GitHub
+git config --global user.name "__"
+git config --global user.email "__"
 
 // caso a pasta não tenha sido clonada, para criar a pasta git
 git init

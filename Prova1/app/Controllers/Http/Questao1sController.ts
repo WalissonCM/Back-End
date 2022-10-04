@@ -69,20 +69,17 @@ export default class Questao1sController {
 
 
 
-
-
-
       // Questão 1.2
       let salarioreajustado
       /*salarioreajustado = (0.25 * salario ) + salario */
       if (tipoPessoa == 'PJ'){
          salarioreajustado = 1.25 * salario 
-      } else if{tipoPessoa == 'PF'){
+      } else if(tipoPessoa == 'PF'){
+          return {nome, salario, salarioreajustado}
       }
       
-      return {nome, salario, salarioreajustado}
-   }   
-      
+     
+
          if(sexo == 'M'){
 
             if(cargo == 'Estagiario'){
@@ -101,19 +98,23 @@ export default class Questao1sController {
          
         } else if(sexo == 'F'){
 
-         if(cargo == 'Estagiario'){
-            salarioreajustado = 2 * salario  
-         } else if(cargo == 'Tecnico'){
-            salarioreajustado = 1.7 * salario
-         } else if(cargo == 'Gerente'){
-           salarioreajustado = 1.4 * salario
-         } else if(cargo == 'Diretor'){
-           salarioreajustado = 1.3 * salario
-         } else if(cargo == 'Presidente'){
-           salarioreajustado = 1.2 * salario  
-      }
-   }  
-}
+            if(cargo == 'Estagiario'){
+               salarioreajustado = 2 * salario  
+            } else if(cargo == 'Tecnico'){
+               salarioreajustado = 1.7 * salario
+            } else if(cargo == 'Gerente'){
+              salarioreajustado = 1.4 * salario
+            } else if(cargo == 'Diretor'){
+              salarioreajustado = 1.3 * salario
+            } else if(cargo == 'Presidente'){
+              salarioreajustado = 1.2 * salario  
+            }
+         }
+      }   
+   }
+  
+
+
 
 
    
