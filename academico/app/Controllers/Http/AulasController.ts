@@ -16,24 +16,24 @@ export default class AulasController {
 
      }
      
-    create({request}){
-
+     show({request}){
+        const id = request.param('id')
+        return Aula.findOrFail(id)
+        
     }
 
-    show({request}){
-
+    async destroy({request}){
+        const id = request.param('id')
+        const aula = await Aula.findOrFail(id)
+        return aula.delete()
     }
 
-    edit({request}){
-
-    }
-
-    update({request}){
-
-    }
-
-    destroy({request}){
-
+    async update({request}){
+        const id = request.param('id')
+        const aula = await Aula.findOrFail(id)
+        const dados = request.only(["data", "conteudo", "turma_id"])
+        aula.merge(dados)
+        return aula.save()
     }
 
 }

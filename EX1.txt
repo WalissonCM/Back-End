@@ -1,8 +1,4 @@
-// import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-
-export default class ExerciciosController {
-
-    deversala ({request}){
+deversala ({request}){
     
        const salariominimo = request.input('salarioMinimo') *1
        const horasTrabalhadas = request.input('horasTrabalhadas') *1

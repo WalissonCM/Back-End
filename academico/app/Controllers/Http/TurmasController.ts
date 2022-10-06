@@ -16,24 +16,24 @@ export default class TurmasController {
 
      }
      
-    create({request}){
-
+     show({request}){
+        const id = request.param('id')
+        return Turma.findOrFail(id)
+        
     }
 
-    show({request}){
-
+    async destroy({request}){
+        const id = request.param('id')
+        const turma = await Turma.findOrFail(id)
+        return turma.delete()
     }
 
-    edit({request}){
-
+    async update({request}){
+        const id = request.param('id')
+        const turma = await Turma.findOrFail(id)
+        const dados = request.only(["nome", "professor_id", "semestre_id", "disciplina_id", "sala_id", "turno"])
+        turma.merge(dados)
+        return turma.save()
     }
 
-    update({request}){
-
-    }
-
-    destroy({request}){
-
-    }
-     
 }

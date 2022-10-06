@@ -16,24 +16,24 @@ export default class ProfessorsController {
 
      }
      
-    create({request}){
-
+     show({request}){
+        const id = request.param('id')
+        return Professor.findOrFail(id)
+        
     }
 
-    show({request}){
-
+    async destroy({request}){
+        const id = request.param('id')
+        const professor = await Professor.findOrFail(id)
+        return professor.delete()
     }
 
-    edit({request}){
-
+    async update({request}){
+        const id = request.param('id')
+        const professor = await Professor.findOrFail(id)
+        const dados = request.only(["nome", "cpf", "matricula", "salario", "email", "telefone", "cep", "logadouro", "complemento", "numero", "bairro"])
+        professor.merge(dados)
+        return professor.save()
     }
 
-    update({request}){
-
-    }
-
-    destroy({request}){
-
-    }
-     
 }

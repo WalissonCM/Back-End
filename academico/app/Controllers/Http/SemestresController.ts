@@ -17,24 +17,24 @@ export default class SemestresController {
 
      }
      
-    create({request}){
-
+     show({request}){
+        const id = request.param('id')
+        return Semestre.findOrFail(id)
+        
     }
 
-    show({request}){
-
+    async destroy({request}){
+        const id = request.param('id')
+        const semestre = await Semestre.findOrFail(id)
+        return semestre.delete()
     }
 
-    edit({request}){
-
+    async update({request}){
+        const id = request.param('id')
+        const semestre = await Semestre.findOrFail(id)
+        const dados = request.only(["nome", "data_inicio", "data_fim"])
+        semestre.merge(dados)
+        return semestre.save()
     }
 
-    update({request}){
-
-    }
-
-    destroy({request}){
-
-    }
-     
 }
