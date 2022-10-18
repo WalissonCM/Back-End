@@ -8,7 +8,7 @@ export default class DisciplinasController {
        /*pesquisas .all, .query().were('curso_id', 10), .query().select(['id','nome', 'curso_id']) */ 
         
         
-        return Disciplina.all()
+        return Disciplina.query().preload('curso')
      }
  
      store({request}){
