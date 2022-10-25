@@ -9,17 +9,16 @@ export default class SemestresController {
         return Semestre.all()
      }
  
-     store({request}){
+    store({request}){
 
-        const dados = request.only(["nome", "data_inicio", "data_fim"])
-        
-            return Semestre.create(dados)
+        const dados = request.only(["nome", "data_inicio", "data_fim"])       
+        return Semestre.create(dados)
 
      }
      
-     show({request}){
+    async show({request}){
         const id = request.param('id')
-        return Semestre.findOrFail(id)
+        return await Semestre.findOrFail(id)
         
     }
 

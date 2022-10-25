@@ -5,20 +5,19 @@ import Aluno from "App/Models/Aluno"
 export default class AlunosController {
 
     index(){
-        return Aluno.all()
+        return Aluno.query().preload('turmas')
      }
  
-     store({request}){
+    store({request}){
 
         const dados = request.only(["nome", "cpf", "matricula", "email", "cep", "logadouro", "complemento", "numero", "bairro"])
-      
         return Aluno.create(dados)
 
      }
      
-     show({request}){
+    async show({request}){
         const id = request.param('id')
-        return Aluno.findOrFail(id)
+        return await Aluno.findOrFail(id)
         
     }
 

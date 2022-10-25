@@ -8,17 +8,16 @@ export default class AulasController {
         return Aula.all()
      }
  
-     store({request}){
+    store({request}){
 
         const dados = request.only(["data", "conteudo", "turma_id"])
-
         return Aula.create(dados)
 
      }
      
-     show({request}){
+    async show({request}){
         const id = request.param('id')
-        return Aula.findOrFail(id)
+        return await Aula.findOrFail(id)
         
     }
 

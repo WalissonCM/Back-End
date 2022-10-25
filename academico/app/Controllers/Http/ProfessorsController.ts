@@ -8,17 +8,16 @@ export default class ProfessorsController {
         return Professor.all()
      }
  
-     store({request}){
+    store({request}){
 
-        const dados = request.only(["nome", "cpf", "matricula", "salario", "email", "telefone", "cep", "logadouro", "complemento", "numero", "bairro"])
-    
-         return Professor.create(dados)
+        const dados = request.only(["nome", "cpf", "matricula", "salario", "email", "telefone", "cep", "logadouro", "complemento", "numero", "bairro"])  
+        return Professor.create(dados)
 
      }
      
-     show({request}){
+    async show({request}){
         const id = request.param('id')
-        return Professor.findOrFail(id)
+        return await Professor.findOrFail(id)
         
     }
 

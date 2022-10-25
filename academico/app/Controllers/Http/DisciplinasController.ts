@@ -5,23 +5,23 @@ import Disciplina from "App/Models/Disciplina";
 export default class DisciplinasController {
 
     index(){
-       /*pesquisas .all, .query().were('curso_id', 10), .query().select(['id','nome', 'curso_id']) */ 
+       /*pesquisas: .all, .query().were('id','nome', 'curso_id), / .query().select(['id','nome', 'curso_id'])
+       / .query().ordebay() / .query().paginate() */ 
         
         
         return Disciplina.query().preload('curso')
      }
  
-     store({request}){
+    store({request}){
 
         const dados = request.only(["nome", "cursos_id"])
-        
         return Disciplina.create(dados)
 
      }
      
-     show({request}){
+    async show({request}){
         const id = request.param('id')
-        return Disciplina.findOrFail(id)
+        return await Disciplina.findOrFail(id)
         
     }
 

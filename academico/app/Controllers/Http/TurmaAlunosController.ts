@@ -8,17 +8,16 @@ export default class TurmaAlunosController {
         return TurmaAluno.all()
      }
  
-     store({request}){
+    store({request}){
 
-        const dados = request.only(["turma_id", "alunos_id"])
-       
-            return TurmaAluno.create(dados)
+        const dados = request.only(["turma_id", "alunos_id"])       
+        return TurmaAluno.create(dados)
 
      }
      
-     show({request}){
+    async show({request}){
         const id = request.param('id')
-        return TurmaAluno.findOrFail(id)
+        return await TurmaAluno.findOrFail(id)
         
     }
 

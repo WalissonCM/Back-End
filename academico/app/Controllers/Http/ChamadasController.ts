@@ -8,17 +8,16 @@ export default class ChamadasController {
         return Chamada.all()
      }
  
-     store({request}){
+    store({request}){
 
         const dados = request.only(["aula_id", "aluno_id", "presenca"])
-
         return Chamada.create(dados)
 
      }
      
-     show({request}){
+    async show({request}){
         const id = request.param('id')
-        return Chamada.findOrFail(id)
+        return await Chamada.findOrFail(id)
         
     }
 

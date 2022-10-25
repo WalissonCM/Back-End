@@ -16,9 +16,9 @@ export default class CursosController {
         
     }
     
-    show({request}){
+    async show({request}){
         const id = request.param('id')
-        return Curso.findOrFail(id)
+        return await Curso.findOrFail(id)
         
     }
 

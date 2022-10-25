@@ -5,20 +5,19 @@ import Turma from "App/Models/Turma";
 export default class TurmasController {
     
     index(){
-        return Turma.all()
+        return Turma.query().preload('alunos')
      }
  
-     store({request}){
+    store({request}){
 
-        const dados = request.only(["nome", "professor_id", "semestre_id", "disciplina_id", "sala_id", "turno"])
-       
-            return Turma.create(dados)
+        const dados = request.only(["nome", "professor_id", "semestre_id", "disciplina_id", "sala_id", "turno"])       
+        return Turma.create(dados)
 
      }
      
-     show({request}){
+    async show({request}){
         const id = request.param('id')
-        return Turma.findOrFail(id)
+        return await Turma.findOrFail(id)
         
     }
 

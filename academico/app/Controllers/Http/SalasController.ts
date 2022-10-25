@@ -8,17 +8,16 @@ export default class SalasController {
         return Sala.all()
      }
  
-     store({request}){
+    store({request}){
 
         const dados = request.only(["nome", "capacidade", "tipo"])
-     
-            return Sala.create(dados)
+        return Sala.create(dados)
 
      }
      
-     show({request}){
+    async show({request}){
         const id = request.param('id')
-        return Sala.findOrFail(id)
+        return await Sala.findOrFail(id)
         
     }
 
