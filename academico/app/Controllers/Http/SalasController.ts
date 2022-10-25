@@ -5,7 +5,7 @@ import Sala from "App/Models/Sala";
 export default class SalasController {
     
     index(){
-        return Sala.all()
+        return Sala.query().preload('turma').paginate(1)
      }
  
     store({request}){

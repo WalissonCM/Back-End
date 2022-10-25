@@ -9,7 +9,7 @@ export default class DisciplinasController {
        / .query().ordebay() / .query().paginate() */ 
         
         
-        return Disciplina.query().preload('curso')
+        return Disciplina.query().preload('curso').paginate(1)
      }
  
     store({request}){

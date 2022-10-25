@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column, HasMany, hasMany} from '@ioc:Adonis/Lucid/Orm'
 import Turma from './Turma'
 import Chamada from './Chamada'
 
@@ -26,7 +26,7 @@ export default class Aula extends BaseModel {
   public turma: BelongsTo<typeof Turma>
 
   @hasMany(()=>Chamada)
-  public Chamada: HasMany<typeof Chamada>
+  public chamada: HasMany<typeof Chamada>
 
 
 }

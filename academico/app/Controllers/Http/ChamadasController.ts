@@ -5,7 +5,7 @@ import Chamada from "App/Models/Chamada";
 export default class ChamadasController {
 
     index(){
-        return Chamada.all()
+        return Chamada.query().paginate(1)
      }
  
     store({request}){

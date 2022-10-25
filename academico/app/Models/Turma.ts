@@ -47,12 +47,10 @@ export default class Turma extends BaseModel {
   @belongsTo(()=>Professor)
   public professor: BelongsTo<typeof Professor>
 
-  @manyToMany(()=>Aluno, {
-    pivotTable: 'turma_alunos',
-  })
+  @manyToMany(()=>Aluno, {pivotTable: 'turma_alunos'})
   public alunos: ManyToMany<typeof Aluno>
 
-  @hasMany(()=>Aula, {})
+  @hasMany(()=>Aula)
   public aula: HasMany<typeof Aula>
 
 }

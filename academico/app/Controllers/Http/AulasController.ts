@@ -5,7 +5,7 @@ import Aula from "App/Models/Aula"
 export default class AulasController {
 
     index(){
-        return Aula.all()
+        return Aula.query().preload('turma').paginate(1)
      }
  
     store({request}){

@@ -5,10 +5,10 @@ export default class extends BaseSeeder {
   public async run () {
     await Chamada.createMany([
       {aulaId: 1, alunoId: 1, presenca: "O"},
-      {aulaId: 1, alunoId: 1, presenca: "O"},
-      {aulaId: 1, alunoId: 1, presenca: "O"},
-      {aulaId: 1, alunoId: 1, presenca: "O"},
-      {aulaId: 1, alunoId: 1, presenca: "O"},
+      {aulaId: 2, alunoId: 2, presenca: "O"},
+      {aulaId: 3, alunoId: 3, presenca: "O"},
+      {aulaId: 4, alunoId: 4, presenca: "O"},
+      {aulaId: 5, alunoId: 5, presenca: "O"},
     ])
   }
 }

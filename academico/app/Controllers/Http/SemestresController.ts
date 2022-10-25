@@ -6,15 +6,15 @@ export default class SemestresController {
     
     index(){
         
-        return Semestre.all()
-     }
+        return Semestre.query().preload('turma').paginate(1)
+    }
  
     store({request}){
 
         const dados = request.only(["nome", "data_inicio", "data_fim"])       
         return Semestre.create(dados)
 
-     }
+    }
      
     async show({request}){
         const id = request.param('id')

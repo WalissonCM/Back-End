@@ -5,7 +5,7 @@ import Professor from "App/Models/Professor";
 export default class ProfessorsController {
     
     index(){
-        return Professor.all()
+        return Professor.query().preload('turma').paginate(1)
      }
  
     store({request}){

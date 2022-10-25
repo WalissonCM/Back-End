@@ -5,7 +5,7 @@ import Turma from "App/Models/Turma";
 export default class TurmasController {
     
     index(){
-        return Turma.query().preload('alunos')
+        return Turma.query().preload('alunos').paginate(1)
      }
  
     store({request}){
