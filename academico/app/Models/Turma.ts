@@ -39,7 +39,7 @@ export default class Turma extends BaseModel {
   public semestre: BelongsTo<typeof Semestre>
 
   @belongsTo(()=>Sala)
-  public Sala: BelongsTo<typeof Sala>
+  public sala: BelongsTo<typeof Sala>
 
   @belongsTo(()=>Disciplina)
   public disciplina: BelongsTo<typeof Disciplina>
@@ -48,7 +48,7 @@ export default class Turma extends BaseModel {
   public professor: BelongsTo<typeof Professor>
 
   @manyToMany(()=>Aluno, {pivotTable: 'turma_alunos'})
-  public alunos: ManyToMany<typeof Aluno>
+  public aluno: ManyToMany<typeof Aluno>
 
   @hasMany(()=>Aula)
   public aula: HasMany<typeof Aula>

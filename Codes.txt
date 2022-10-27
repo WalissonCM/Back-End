@@ -64,6 +64,9 @@ node ace db:seed
 // reset + run iniciando as seeds tambem
 node ace migration:refresh --seed
 
+// Validate
+node ace make:validator _______
+
 
 
 

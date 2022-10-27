@@ -1,16 +1,19 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Aula from "App/Models/Aula"
+import AulaValidator from "App/Validators/AulaValidator"
 
 export default class AulasController {
 
     index(){
-        return Aula.query().preload('turma').paginate(1)
+        return Aula.query().preload('turma')
+                           .preload('chamada')
+                           .paginate(1)
      }
  
-    store({request}){
+    async store({request}){
 
-        const dados = request.only(["data", "conteudo", "turma_id"])
+        const dados = await request.validate(AulaValidator)
         return Aula.create(dados)
 
      }

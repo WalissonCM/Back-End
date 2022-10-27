@@ -1,6 +1,7 @@
 // import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import Sala from "App/Models/Sala";
+import SalaValidator from "App/Validators/SalaValidator";
 
 export default class SalasController {
     
@@ -8,9 +9,9 @@ export default class SalasController {
         return Sala.query().preload('turma').paginate(1)
      }
  
-    store({request}){
+    async store({request}){
 
-        const dados = request.only(["nome", "capacidade", "tipo"])
+        const dados = await request.validate(SalaValidator)
         return Sala.create(dados)
 
      }
