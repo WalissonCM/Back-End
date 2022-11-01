@@ -1,4 +1,4 @@
-import { schema, CustomMessages } from '@ioc:Adonis/Core/Validator'
+import { schema, CustomMessages, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class SemestreValidator {
@@ -24,9 +24,17 @@ export default class SemestreValidator {
    *    ```
    */
   public schema = schema.create({
-    nome:schema.string(),
-    dataInicio:schema.date(),
-    dataFim:schema.date()
+    nome:schema.string({}, [
+     rules.maxLength(50),
+     rules.alpha(),
+     rules.unique({table: 'semestres', column: 'nome'})
+    ]),
+    dataInicio:schema.date({}, [
+      rules.regex(/(^\d{4}\-\d{1,2}\-\d{1,2}$)/)
+    ]),
+    dataFim:schema.date({}, [
+      rules.regex(/(^\d{4}\-\d{1,2}\-\d{1,2}$)/)
+    ])
   })
 
   /**
@@ -40,5 +48,7 @@ export default class SemestreValidator {
    * }
    *
    */
-  public messages: CustomMessages = {}
+  public messages: CustomMessages = {
+    required: 'O campo {{field}} é o obrigatório'
+  }
 }

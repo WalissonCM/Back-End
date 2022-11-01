@@ -25,14 +25,15 @@ export default class CursoValidator {
    */
   public schema = schema.create({
     nome: schema.string({}, [
-      rules.maxLength(50)
+     rules.maxLength(100),
+     rules.alpha(),
+     rules.unique({table: 'cursos', column: 'nome'})
     ]),
     duracao: schema.number.optional([
       rules.maxLength(2)
     ]),
-    modalidade: schema.string({}, [
-      rules.maxLength(1)
-    ])
+    modalidade: schema.enum(['P', 'E', 'H']),
+      
   })
 
   /**
@@ -46,5 +47,7 @@ export default class CursoValidator {
    * }
    *
    */
-  public messages: CustomMessages = {}
+  public messages: CustomMessages = {
+    required: 'O campo {{field}} é o obrigatório'
+  }
 }

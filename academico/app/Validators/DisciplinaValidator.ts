@@ -24,7 +24,11 @@ export default class DisciplinaValidator {
    *    ```
    */
   public schema = schema.create({
-    nome:schema.string(),
+    nome:schema.string({}, [
+      rules.maxLength(50),
+      rules.alpha(),
+      rules.unique({table:'disciplinas', column: 'nome'})
+    ]),
     cursoId:schema.number([
       rules.exists({table:'disciplinas', column: 'curso_id'})
     ])
@@ -41,5 +45,7 @@ export default class DisciplinaValidator {
    * }
    *
    */
-  public messages: CustomMessages = {}
+  public messages: CustomMessages = {
+    required: 'O campo {{field}} é o obrigatório'
+  }
 }

@@ -31,22 +31,41 @@ export default class AlunoValidator {
      rules.unique({table: 'alunos', column: 'nome'})
    ]),
    cpf:schema.string.optional({}, [
-     rules.minLength(11),
-     rules.maxLength(11)
+     rules.minLength(15),
+     rules.maxLength(15),
+     rules.regex(/(^\d{3}\.?\d{3}\.?\d{3}\-?\d{2}$)/)
    ]),
    matricula:schema.string({}, [
-     rules.maxLength(20)
+     rules.maxLength(20),
+     rules.alphaNum
    ]),
    email:schema.string.optional({}, [
      rules.email(),
      rules.maxLength(100)
    ]),
-   telefone:schema.string.optional(),
-   cep:schema.number.optional(),
-   logadouro:schema.string.optional(),
-   complemento:schema.string.optional(),
-   numero:schema.string.optional(),
-   bairro:schema.string.optional()
+   telefone:schema.string.optional({}, [
+     rules.maxLength(15),
+     rules.minLength(15),
+     rules.regex(/^((61)?\d{5}\-?\d{4}$)/)
+   ]),
+   cep:schema.string.optional([
+    rules.maxLength(9),
+    rules.minLength(9),
+    rules.regex(/(^\d{5}\-?\d{3}$)/)
+   ]),
+   logadouro:schema.string.optional({}, [
+    rules.maxLength(100),
+   ]),
+   complemento:schema.string.optional({}, [
+    rules.maxLength(100),
+   ]),
+   numero:schema.string.optional({}, [
+    rules.maxLength(20),
+    rules.alphaNum()
+   ]),
+   bairro:schema.string.optional({}, [
+    rules.maxLength(100),
+   ])
   })
 
   /**
@@ -60,5 +79,7 @@ export default class AlunoValidator {
    * }
    *
    */
-  public messages: CustomMessages = {}
+  public messages: CustomMessages = {
+    required: 'O campo {{field}} é o obrigatório'
+  }
 }

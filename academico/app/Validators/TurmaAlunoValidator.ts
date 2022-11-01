@@ -1,4 +1,4 @@
-import { schema, CustomMessages } from '@ioc:Adonis/Core/Validator'
+import { schema, CustomMessages, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class TurmaAlunoValidator {
@@ -24,8 +24,12 @@ export default class TurmaAlunoValidator {
    *    ```
    */
   public schema = schema.create({
-    turmaId:schema.number(),
-    alunoId:schema.number()
+    turmaId:schema.number([
+      rules.exists({table:'turma_alunos', column: 'turma_id'})
+    ]),
+    alunoId:schema.number([
+      rules.exists({table:'turma_alunos', column: 'aluno_id'})
+    ])
   })
 
   /**
@@ -39,5 +43,7 @@ export default class TurmaAlunoValidator {
    * }
    *
    */
-  public messages: CustomMessages = {}
+  public messages: CustomMessages = {
+    required: 'O campo {{field}} é o obrigatório'
+  }
 }

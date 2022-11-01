@@ -25,7 +25,7 @@ export default class Professor extends BaseModel {
   public telefone: string
 
   @column()
-  public cep: number
+  public cep: string
 
   @column()
   public logadouro: string
