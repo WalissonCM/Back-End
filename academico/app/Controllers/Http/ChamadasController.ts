@@ -12,7 +12,6 @@ export default class ChamadasController {
      }
  
     async store({request}){
-
         const dados = await request.validate(ChamadaValidator)
         return Chamada.create(dados)
 

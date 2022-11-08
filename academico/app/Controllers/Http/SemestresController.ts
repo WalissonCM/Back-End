@@ -11,7 +11,6 @@ export default class SemestresController {
     }
  
     async store({request}){
-
         const dados = await request.validate(SemestreValidator)       
         return Semestre.create(dados)
 

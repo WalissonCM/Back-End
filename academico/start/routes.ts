@@ -20,6 +20,10 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
+Route.post('/users', 'UsersController.store').middleware('auth')
+Route.post('/login', 'UsersController.login')
+
+Route.group(() => {
 Route.resource('/cursos', 'CursosController').apiOnly()
 
 Route.resource('/salas', 'SalasController').apiOnly()
@@ -39,6 +43,8 @@ Route.resource('/turma_alunos', 'TurmaAlunosController').apiOnly()
 Route.resource('/aulas', 'AulasController').apiOnly()
 
 Route.resource('/chamadas', 'ChamadasController').apiOnly()
+
+}).middleware('auth')
 
 
 

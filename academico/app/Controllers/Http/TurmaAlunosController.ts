@@ -10,7 +10,6 @@ export default class TurmaAlunosController {
      }
  
     async store({request}){
-
         const dados = await request.validate(TurmaAlunoValidator)      
         return TurmaAluno.create(dados)
 

@@ -16,7 +16,6 @@ export default class DisciplinasController {
      }
  
     async store({request}){
-
         const dados = await request.validate(DisciplinaValidator)
         return Disciplina.create(dados)
 

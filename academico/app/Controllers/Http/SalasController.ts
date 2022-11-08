@@ -10,7 +10,6 @@ export default class SalasController {
      }
  
     async store({request}){
-
         const dados = await request.validate(SalaValidator)
         return Sala.create(dados)
 

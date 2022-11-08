@@ -81,5 +81,6 @@ export default class AlunoValidator {
    */
   public messages: CustomMessages = {
     required: 'O campo {{field}} é o obrigatório'
+    
   }
 }

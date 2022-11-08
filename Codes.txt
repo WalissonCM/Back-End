@@ -24,48 +24,54 @@ node ace make:controller ______
 //Migration/Model/Controller - criar o codigo base do banco
 node ace make:model ____ -m -c
 
-
 // criar o arquivo seed
 node ace make:seeder _____
 
-
 // inicia as seeders
 node ace db:seed
-
 
 // inicia/cria as tabelas que estao na pasta database/migration
 node ace migration:run
 
-
 //desfaz a ultima alteração
 node ace migration:rollback
-
 
 //apaga todo o banco
 node ace migration:reset
 
-
 //reset + run
 node ace migration:refresh
 
-
-
-//       seeders
-
+\\seeders //
 
 // criar o arquivo seed
 node ace make:seeder _____
 
-
 // inicia as seeders
 node ace db:seed
 
+// Escolhe o seed
+node ace db:seed -i
 
 // reset + run iniciando as seeds tambem
 node ace migration:refresh --seed
 
 // Validate
 node ace make:validator _______
+
+// Autentificacão
+npm i @adonisjs/auth
+node ace configure @adonisjs/auth
+     Lucid
+     Api-Token
+     yes- Migrantion
+     Database
+     yes- Migration
+
+npm i phc-argon2
+
+// Auth middleware
+Route.group(() => {'''''''Rotas das Tabelas'''''''''}).middleware('auth')
 
 
 

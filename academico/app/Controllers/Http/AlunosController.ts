@@ -12,7 +12,6 @@ export default class AlunosController {
      }
  
     async store({request}){
-
         const dados = await request.validate(AlunoValidator)
         return Aluno.create(dados)
 

@@ -11,7 +11,6 @@ export default class CursosController {
     }
 
     async store({request}){
-
         const dados = await request.validate(CursoValidator)
         return Curso.create(dados)
         

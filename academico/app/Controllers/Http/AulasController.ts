@@ -12,7 +12,6 @@ export default class AulasController {
      }
  
     async store({request}){
-
         const dados = await request.validate(AulaValidator)
         return Aula.create(dados)
 

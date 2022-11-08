@@ -16,7 +16,6 @@ export default class TurmasController {
      }
  
     async store({request}){
-
         const dados = await request.validate(TurmaValidator)
         return Turma.create(dados)
 

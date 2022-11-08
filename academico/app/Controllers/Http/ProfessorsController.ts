@@ -10,7 +10,6 @@ export default class ProfessorsController {
      }
  
     async store({request}){
-
         const dados = await request.validate(ProfessorValidator) 
         return Professor.create(dados)
 
