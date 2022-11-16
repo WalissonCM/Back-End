@@ -24,12 +24,6 @@ node ace make:controller ______
 //Migration/Model/Controller - criar o codigo base do banco
 node ace make:model ____ -m -c
 
-// criar o arquivo seed
-node ace make:seeder _____
-
-// inicia as seeders
-node ace db:seed
-
 // inicia/cria as tabelas que estao na pasta database/migration
 node ace migration:run
 
@@ -64,6 +58,7 @@ npm i @adonisjs/auth
 node ace configure @adonisjs/auth
      Lucid
      Api-Token
+     User
      yes- Migrantion
      Database
      yes- Migration

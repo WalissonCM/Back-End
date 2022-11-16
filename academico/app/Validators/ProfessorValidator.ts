@@ -39,6 +39,7 @@ export default class ProfessorValidator {
       rules.alphaNum
    ]),
     salario:schema.string.optional(),
+    
     email:schema.string.optional({}, [
       rules.email(),
       rules.maxLength(100)
